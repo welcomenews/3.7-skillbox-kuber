@@ -14,6 +14,6 @@ spec:
           restartPolicy: OnFailure
           containers:
           - name: cron
-            image: ubuntu
-            command: ["/bin/sh"]
-            args: ["-c", "date; hostname -I | awk '{print $1}'"]
+            image: curlimages/curl
+            command: ["/bin/sh", "-c", 
+            "date; curl ipinfo.io/ip"]
