@@ -16,4 +16,4 @@ spec:
           - name: cron
             image: curlimages/curl
             command: ["/bin/sh", "-c", 
-            "date; curl ipinfo.io/ip"]
+            "date; curl -s ipinfo.io/ip"]
