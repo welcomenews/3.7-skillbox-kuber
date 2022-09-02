@@ -1,0 +1,19 @@
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: cron-date-ip
+spec:
+  schedule: "*/1 * * * *"
+  jobTemplate:
+    spec:
+      template:
+        metadata:
+          labels:
+            app: cron
+        spec:
+          restartPolicy: OnFailure
+          containers:
+          - name: cron
+            image: ubuntu
+            command: ["/bin/sh"]
+            args: ["-c", "date; hostname -I | awk '{print $1}'"]
